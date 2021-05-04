@@ -35,6 +35,11 @@ if($argc==0){
 	exit(1);
 }
 
+#list-repos command
+if(@ARGV[0] eq 'list-repos'){
+	system("ls /pkg/repos");
+}
+
 #	Implementation of the add-repo command
 if(@ARGV[0] eq 'add-repo'){
 	#Check for only one argument and ask for other stuff
@@ -195,9 +200,14 @@ if(@ARGV[0] eq 'install'){
 			while(my $line = <FH>){
 				if($line eq "\n"){next};
 				chomp($line);
+				#create symlinks in bin
 				system("ln -s $pkgpath/build/@ARGV[$i]/bin/$line /pkg/bin/$line");
 			}
 			close(FH);
+			open($FH2,'>',"$pkgpath/installed");
+			print $FH2 'THIS FILE IS PRESENT IF THE PACKAGE IS INSTALLED' . "\n";
+			print $FH2 "INSTALLATION MODE: MANUAL\n"
+			print $FH2 "--end--\n";
 			next;
 		}
 	}
