@@ -1,0 +1,3 @@
+#       FreePKG package list       
+#===================================
+helloperl::https://github.com/Michael0x18/FreePKG/raw/main/helloperl.tar.xz::HelloPerl is a hello world program written in perl.% It has no dependencies. (except for perl, which is external)::null::perl::helloperl::helloperl.pl
