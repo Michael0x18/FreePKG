@@ -206,8 +206,8 @@ if(@ARGV[0] eq 'install'){
 			close(FH);
 			open($FH2,'>',"$pkgpath/installed");
 			print $FH2 'THIS FILE IS PRESENT IF THE PACKAGE IS INSTALLED' . "\n";
-			print $FH2 "INSTALLATION MODE: MANUAL\n"
-			print $FH2 "--end--\n";
+			print $FH2 "INSTALLATION MODE: MANUAL\n";
+			print $FH2 "end\n";
 			next;
 		}
 	}
