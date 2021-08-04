@@ -13,11 +13,23 @@ my $ARGC = @ARGV;
 
 #Read packages and verify that they exist
 print("Reading package database...\n");
-for(my $i = 0; $i < $ARGC; $i++){
-	my @trees = <'/opt/FreePKG/tree/*'>;
-	foreach my $tree (@trees) {
-		print $tree . "\n";
+foreach my $arg (@ARGV){
+	#Fetch list of trees
+	#Iterate over trees
+	foreach my $tree (<'/opt/FreePKG/tree/*'>) {
+		if(-d $tree){
+			foreach my $category (<"$tree/*">){
+				if(-d $category){
+					if(-d "$category/$arg"){
+						goto end;
+					}
+				}
+			}
+		}
 	}
+	print(color('bold red') . "[ERROR] " . color('reset') . "Could not locate package $arg\n");
+	exit(1);
+	end:
 }
 
 if($>!=0){

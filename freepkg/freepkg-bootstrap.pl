@@ -43,10 +43,10 @@ if(-e '/opt/FreePKG/'){
 	exit(1);
 }
 print("Generating directory structure...\n");
-mkdir("/opt/FreePKG",700);
-mkdir("/opt/FreePKG/core",700);
-mkdir("/opt/FreePKG/etc",700);
-mkdir("/opt/FreePKG/tree",700);
+mkdir("/opt/FreePKG",0755);
+mkdir("/opt/FreePKG/core",0755);
+mkdir("/opt/FreePKG/etc",0755);
+mkdir("/opt/FreePKG/tree",0755);
 print("Bootstrapping into /opt/FreePKG/core\n");
 system("cp ./freepkg/* /opt/FreePKG/core/");
 print("Done bootstrapping.\n");
