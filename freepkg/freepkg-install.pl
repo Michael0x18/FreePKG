@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-#FreePKG setup script v1.0
+#FreePKG install script v1.0
 #Michael0x18
 
 #Use
@@ -9,11 +9,16 @@ use Time::HiRes qw(usleep nanosleep);
 #No buffering
 $|=1;
 
-#
+my $ARGC = @ARGV;
+
+#Read packages and verify that they exist
 print("Reading package database...\n");
-
-
-
+for(my $i = 0; $i < $ARGC; $i++){
+	my @trees = <'/opt/FreePKG/tree/*'>;
+	foreach my $tree (@trees) {
+		print $tree . "\n";
+	}
+}
 
 if($>!=0){
 	print(color('bold red'));

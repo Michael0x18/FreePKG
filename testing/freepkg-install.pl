@@ -1,0 +1,1 @@
+./freepkg/freepkg-install.pl

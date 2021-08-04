@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ./freepkg/freepkg-bootstrap.pl
