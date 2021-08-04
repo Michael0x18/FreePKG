@@ -1,0 +1,74 @@
+Directory structure:
+
+The package manager files live in /opt/FreePKG/
+Specifically:
+/opt/FreePKG/core/ contains the FreePKG core files
+/opt/FreePKG/core/bin contains the FreePKG binary files (symlinked into /usr/bin)
+/opt/FreePKG/tree/ contains the FreePKG package trees
+/opt/FreePKG/etc/ contains the FreePKG configuration database
+
+
+Tree structure:
+
+The default tree is /opt/FreePKG/tree/master/ 
+The structure is as follows:
+/opt/FreePKG/tree/<treename>/<category>/<packagename>/
+
+A package looks like the following:
+For example, a package test in examples would look like this:
+
+/
+|
++-opt
+  |
+  +-FreePKG
+    |
+    +-core
+    | |
+    | +-stuff 
+    |
+    +-etc
+    | |
+    | +-stuff
+    |
+    +-tree
+      |
+      +-master
+        |
+        +-examples
+          |
+          +-test
+            |
+            +-pkginfo
+
+pkginfo looks like this:
+==BEGIN(not part of file)==
+%PKGNAME
+example/test
+%END
+%PKGDESC
+This is an example (and test) package for the FreePKG package manager"
+%END
+%PKGLOC
+LOCATION="https://github.com/testboi/examplepkg.tar.xz"
+%END
+%CHECKSUM
+NOVALIDATE
+TRIVIAL
+%END	#note: it could be {"MD5","<checksum here>"}. checksum is of the tarball.
+%BINARIES
+bin/helloperl.pl->/usr/bin/helloperl
+bin/hellopython.py->/usr/bin/hellopython
+%END
+==END(not part of file)==
+
+
+
+
+
+
+
+
+
+
+
